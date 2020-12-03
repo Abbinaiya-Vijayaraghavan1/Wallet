@@ -1,0 +1,22 @@
+{
+  "name": "wallet",
+  "version": "1.0.0",
+  "description": "Ethereum Wallet Console app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abbinaiya Vijayaraghavan",
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^7.14.0",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.2",
+    "web3": "^1.3.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "prompt": "^1.0.0",
+    "prompt-sync": "^4.2.0"
+  }
+}
