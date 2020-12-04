@@ -28,7 +28,7 @@ const wallet = web3.eth.accounts.wallet.create();
 //Choose to create or import account
 let continued;
 do{
-const accountType = prompt('Choose (1/2) : 1. Create a new account 2. Import an account') 
+const accountType = prompt('Choose (1/2) : 1. Create a new account 2. Import an account ') 
 let account11, pkey,acc;
 const chooseAccount = function(number) {    
     switch(Number(number))
@@ -38,22 +38,23 @@ const chooseAccount = function(number) {
            console.log(account11);
            return web3.eth.accounts.wallet.add(account11);
        case 2:
-           pkey= prompt("Enter private key")
+           pkey= prompt("Enter private key ")
            acc = web3.eth.accounts.privateKeyToAccount(pkey);
            return web3.eth.accounts.wallet.add(acc);
     }
 }
 chooseAccount(accountType);
 
-continued = prompt("Press 1 to add/create another account");
+continued = prompt("Choose 1. Import/Create new account 2. Continue ");
 }while(Number(continued)==1)
 
 
 //Function to check balance
 const checkBalance = function() {    
-    let index = Number(prompt("Enter index of account in wallet"));
+    let index = Number(prompt("Enter index of account in wallet "));
 
-    web3.eth.getBalance(web3.eth.accounts.wallet[index].address).then(function(res){
+    web3.eth.getBalance(web3.eth.accounts.wallet[index].address)
+    .then(function(res){
         console.log(res);
         choiceFunction();
     })
@@ -84,6 +85,13 @@ const transact = function() {
 }
 
 
+//function to display wallet
+const displayWallet = function(){
+       console.log(wallet);
+       choiceFunction();
+}
+
+
 //Choose action
 const choiceFunction = function() { 
     
@@ -100,7 +108,7 @@ const choiceFunction = function() {
                networkStatus();
                break;
            case 4:
-               console.log(wallet);
+               displayWallet();
                break;
            case 5:
                process.exit();

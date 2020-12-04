@@ -4,7 +4,18 @@
   "description": "Ethereum Wallet Console app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint:fix": "eslint src/*.js --fix",
+    "lint" : "eslint src/*.js",
+    "test" : "lint-staged"
+  },
+  "husky":
+  {
+    "hooks" :{
+           "pre-commit" : "lint-staged"
+    }
+  },
+  "lint-staged" :{
+      "*.js" : ["eslint --fix" ,"git add"]
   },
   "author": "Abbinaiya Vijayaraghavan",
   "license": "ISC",
